@@ -10,8 +10,9 @@ while True:
     print "Try to guess my number."
     number = random.randint(1, 100)
     tries = 0
+    guess = None
 
-    while True:
+    while guess != number:
         try:
             guess = int(raw_input("Your guess? "))
         except ValueError:
@@ -23,13 +24,12 @@ while True:
             continue
 
         tries += 1
-        if guess == number:
-            print "Well done, %s! You found my number in %i tries!" % (name, tries)
-            break
-        elif guess > number:
+        if guess > number:
             print "Your guess is too high, try again."
-        else:
+        elif guess < number:
             print "Your guess is too low, try again."
+
+    print "Well done, %s! You found my number in %i tries!" % (name, tries)
     if best > tries or best == 0:
         best = tries
     if raw_input("Would you like to keep playing? Yes or no: ").strip().lower() != 'yes':
