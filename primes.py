@@ -13,6 +13,7 @@ For example::
 
 """
 
+#Exercise done by Oxana and Elizabeth
 
 def check_divisible(number, factors):
     for j in factors:
